@@ -3,18 +3,18 @@
 
 (meditations
   "In the beginning, there was a word"
-  (= __ (deref the-world))
+  (= "hello" (deref the-world))
 
   "You can get the word more succinctly, but it's the same"
-  (= __ @the-world)
+  (= "hello" @the-world)
 
   "You can be the change you wish to see in the world."
-  (= __ (do
+  (= "better" (do
           (dosync (ref-set the-world "better"))
           @the-world))
 
   "Alter where you need not replace"
-  (= __ (let [exclamator (fn [x] (str x "!"))]
+  (= "better!!!" (let [exclamator (fn [x] (str x "!"))]
           (dosync
            (alter the-world exclamator)
            (alter the-world exclamator)
